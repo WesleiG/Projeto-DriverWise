@@ -1,0 +1,17 @@
+{
+  "name": "antigravity-telegram-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Telegram Bot controller for Antigravity & DriverWise",
+  "main": "bot.mjs",
+  "scripts": {
+    "start": "node bot.mjs",
+    "check": "node --check bot.mjs && node --check bridge_listener.mjs && node --check wait_for_telegram.mjs",
+    "test": "node --test security.test.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "firebase-admin": "^14.3.0",
+    "grammy": "^1.46.0"
+  }
+}

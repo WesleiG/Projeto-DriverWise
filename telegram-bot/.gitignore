@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+node_modules/
+audio_vault/
+documents_vault/
+models/
+.bot-state/
+telegram_inbox.jsonl
+authorized_users.json
+__pycache__/
+*.pyc

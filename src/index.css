@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #030712;
+    color: #f8fafc;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  /* Fontes Automóveis e Monospaced para Velocímetro e Finanças */
+  .font-mono {
+    font-family: 'Space Grotesk', 'Inter', monospace;
+    font-feature-settings: 'tnum' on, 'zero' on;
+  }
+
+  .font-speed {
+    font-family: 'Rajdhani', 'Space Grotesk', sans-serif;
+    font-feature-settings: 'tnum' on;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Leaflet Map Theme Adjustments */
+.dark .leaflet-container,
+:not(.light) .leaflet-container {
+  background-color: #030712 !important;
+  font-family: inherit;
+}
+
+.light .leaflet-container {
+  background-color: #f8fafc !important;
+  font-family: inherit;
+}
+
+.dark .leaflet-tile,
+:not(.light) .leaflet-tile {
+  filter: brightness(0.72) invert(1) contrast(1.7) hue-rotate(205deg) saturate(0.35) brightness(0.82);
+}
+
+.light .leaflet-tile {
+  filter: none !important;
+}
+
+.custom-car-marker {
+  background: transparent;
+  border: none;
+}
+
+/* Animações leves do cockpit: apenas transform e opacity (GPU-friendly). */
+@keyframes aircraft-runway-flow {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -24px, 0) scaleY(0.55);
+  }
+  18% {
+    opacity: 0.78;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, 40px, 0) scaleY(1.25);
+  }
+}
+
+@keyframes aircraft-speed-streak {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0) scaleY(0.65);
+  }
+  24% {
+    opacity: 0.82;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 72px, 0) scaleY(1.35);
+  }
+}
+
+.aircraft-runway-flow {
+  animation-name: aircraft-runway-flow;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.aircraft-speed-streak {
+  animation-name: aircraft-speed-streak;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aircraft-runway-flow,
+  .aircraft-speed-streak {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,25 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated output
+node_modules/
+dist/
+.firebase/
+firebase-debug.log
+firestore-debug.log
+*.tsbuildinfo
+scripts/backups/
+
+# Local runtime data
+telegram-bot/audio_vault/
+telegram-bot/documents_vault/
+telegram-bot/telegram_inbox.jsonl
+telegram-bot/authorized_users.json
+telegram-bot/.bot-state/
+
+# Local Python environments
+telegram-bot/.venv/
+__pycache__/
+*.pyc
